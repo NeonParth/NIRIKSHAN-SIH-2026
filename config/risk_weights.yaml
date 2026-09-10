@@ -1,0 +1,40 @@
+# NIRIKSHAN Phase 1 demonstration weights.
+# These are configurable defaults, not production policy.
+# Total of listed signal weights = 100.
+
+version: 1
+source_module: rule_based_risk_engine
+
+signals:
+  duplicate_proximity: 25
+  image_similarity: 25
+  cost_deviation: 20
+  low_bidder_competition: 10
+  contractor_concentration: 10
+  repeated_contractor_wins: 10
+
+# Future stubs (not scored in Phase 1 until implemented and tested):
+# vendor_nexus_detected
+# corporate_collusion
+
+risk_levels:
+  LOW:
+    min: 0
+    max: 30
+  MEDIUM:
+    min: 31
+    max: 60
+  HIGH:
+    min: 61
+    max: 80
+  CRITICAL:
+    min: 81
+    max: 100
+
+thresholds:
+  proximity_meters: 500
+  cost_deviation_ratio: 1.20
+  low_bidder_count: 3
+  concentration_award_share: 0.40
+  # DEMO-001 contractor has 2 awards; threshold 2 triggers repeated_contractor_wins.
+  repeated_wins_count: 2

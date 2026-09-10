@@ -1,0 +1,5 @@
+SYNTHETIC DEMO EVIDENCE
+Project: DEMO-002
+Type: site photograph placeholder
+This file is not a real field photograph.
+Perceptual hash (demo metadata): SYNTH-HASH-A1

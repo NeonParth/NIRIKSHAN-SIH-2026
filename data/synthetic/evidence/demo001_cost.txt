@@ -1,0 +1,3 @@
+SYNTHETIC COST COMPARISON NOTE
+Project DEMO-001 allocated amount exceeds the configured demonstration benchmark ratio.
+Not an official cost estimate.
