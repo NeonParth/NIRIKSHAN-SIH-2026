@@ -2,7 +2,7 @@
 
 > **AI-assisted project monitoring, spatial analysis, anomaly detection, and evidence-based verification for MPLADS implementation.**
 
-NIRIKSHAN is a monitoring and risk-intelligence prototype designed to help authorities prioritize MPLADS projects that require verification. Instead of treating every project equally, the system combines project data, spatial relationships, cost signals, tender/competition indicators, image-evidence similarity, and explainable rule-based risk scoring to surface projects for human review.
+NIRIKSHAN is a monitoring and risk-intelligence prototype designed to help authorities prioritize MPLADS projects that require verification. The system combines project data, spatial relationships, cost signals, tender/competition indicators, image-evidence similarity, and explainable rule-based risk scoring to surface projects for human review.
 
 > **Demo note:** The current prototype uses synthetic demonstration data. Risk signals are indicators for verification and **do not by themselves establish fraud or wrongdoing**.
 
@@ -12,7 +12,7 @@ NIRIKSHAN is a monitoring and risk-intelligence prototype designed to help autho
 
 Monitoring large numbers of development projects manually can make it difficult to identify which projects deserve immediate attention.
 
-NIRIKSHAN addresses this by providing a centralized workflow to:
+NIRIKSHAN provides a centralized workflow to:
 
 - monitor project-level risk,
 - prioritize anomalies for verification,
@@ -60,9 +60,42 @@ Project & Evidence Data
 
 ---
 
-## ✨ Key Features
+# 📊 Data Visualizations
 
-### 📊 Risk Intelligence Dashboard
+The README includes **actual chart/graph visualizations based on values visible in the current prototype UI**, rather than only using screenshots.
+
+### 1. Risk Level Distribution
+
+The dashboard currently shows 2 assessed projects: **1 Low (50%)** and **1 Critical (50%)**.
+
+![Risk Level Distribution](docs/visualizations/risk-level-distribution.png)
+
+### 2. Risk Contribution Analysis
+
+The prototype explains the DEMO-001 risk assessment through individual contributing signals visible in the investigation interface.
+
+![Risk Contribution Analysis](docs/visualizations/risk-contribution-analysis.png)
+
+### 3. Project Risk Score Comparison
+
+The current prototype queue visibly contains DEMO-001 with a **90/100** risk score and DEMO-003 with a **10/100** risk score.
+
+![Project Risk Score Comparison](docs/visualizations/project-risk-score-comparison.png)
+
+### 4. Geographic Risk Visualization
+
+The dashboard provides a map-based visualization of project locations and risk information.
+
+![Project Risk Map](docs/visualizations/project-risk-map.png)
+
+> **Important:** These are prototype visualizations using synthetic demonstration data. They are included to demonstrate the application's analytical and visualization capabilities.
+
+---
+
+# ✨ Key Features
+
+## 📊 Risk Intelligence Dashboard
+
 A centralized overview of monitored projects with:
 
 - total projects,
@@ -73,7 +106,8 @@ A centralized overview of monitored projects with:
 - project risk map preview, and
 - recent anomaly assessments.
 
-### ⚠️ Explainable Risk Analysis
+## ⚠️ Explainable Risk Analysis
+
 Projects are prioritized using contributing signals rather than an unexplained black-box score.
 
 Example signals demonstrated in the prototype:
@@ -83,10 +117,11 @@ Example signals demonstrated in the prototype:
 - **Cost deviation**
 - **Low tender competition**
 
-Each signal shows its observed value, explanation, and contribution to the overall score.
+Each signal can show its observed value, explanation, and contribution to the overall assessment.
 
-### 🗺️ Geospatial Risk Mapping
-The system provides a map-based view of projects with risk filters for:
+## 🗺️ Geospatial Risk Mapping
+
+The system provides a map-based view of projects with risk filtering for:
 
 - Low
 - Medium
@@ -95,7 +130,8 @@ The system provides a map-based view of projects with risk filters for:
 
 The prototype uses **Leaflet with OpenStreetMap** map data.
 
-### 🔎 Authority Investigation Workspace
+## 🔎 Authority Investigation Workspace
+
 Authorized reviewers can:
 
 - open prioritized projects,
@@ -105,10 +141,12 @@ Authorized reviewers can:
 - record human verification outcomes, and
 - export an investigation report.
 
-### 🧾 Evidence & Provenance
-The interface distinguishes synthetic demonstration data and verification states to maintain an auditable workflow.
+## 🧾 Evidence & Provenance
 
-### 🧠 Human-in-the-Loop Verification
+The interface distinguishes synthetic demonstration data and verification states to support an auditable workflow.
+
+## 🧠 Human-in-the-Loop Verification
+
 NIRIKSHAN does not automatically declare fraud. It identifies **potential risk/anomaly signals** and routes them to an authority for verification.
 
 ---
@@ -161,58 +199,7 @@ The investigation workspace allows reviewers to inspect evidence, review risk si
 
 ---
 
-# 📊 Analytics & Visualizations
-
-The prototype includes multiple forms of analytical visualization.
-
-### 1. Risk Level Distribution
-
-A donut chart summarizes the distribution of assessed projects across:
-
-- Low
-- Medium
-- High
-- Critical
-
-### 2. Risk Contribution Analysis
-
-Individual risk signals are displayed with their contribution to the total risk score, making the assessment explainable.
-
-Example prototype scoring:
-
-```text
-Similar project nearby   +25
-Image similarity         +25
-Cost deviation           +20
-Low competition          +10
-                         ───
-                          80+
-```
-
-The exact score and signals depend on the project data and configured risk rules.
-
-### 3. Risk Priority Queue
-
-Projects are ranked by risk level and verification status so reviewers can focus on the highest-priority cases first.
-
-### 4. Geographic Risk Visualization
-
-Project locations are plotted on an interactive map and can be filtered by risk level.
-
-### 5. Signal-Based Investigation View
-
-The investigation workspace presents each contributing signal with:
-
-- observed value,
-- explanation,
-- contribution,
-- verification state.
-
----
-
-# 🤖 AI / ML & Intelligence Layer
-
-NIRIKSHAN is designed as a modular intelligence platform.
+# 🤖 Intelligence Layer
 
 The current Phase 1 prototype emphasizes **explainable rule-based risk assessment** so that every flagged project can be traced back to understandable signals.
 
@@ -225,7 +212,7 @@ ml/
 └── nlp/
 ```
 
-These modules provide an extensible foundation for incorporating:
+These provide an extensible foundation for:
 
 - anomaly detection,
 - computer vision,
@@ -237,8 +224,6 @@ The prototype intentionally keeps the reviewer in the loop rather than presentin
 ---
 
 # 🗺️ GIS & Spatial Intelligence
-
-Spatial relationships can reveal patterns that are difficult to identify from tabular project data alone.
 
 NIRIKSHAN's GIS layer supports:
 
@@ -257,7 +242,6 @@ The backend includes a dedicated GIS service, while the frontend provides intera
 ```text
 ┌─────────────────────────────────────────────┐
 │              NIRIKSHAN FRONTEND             │
-│                                             │
 │ React + TypeScript + Vite + Tailwind CSS    │
 │ Dashboard │ Risk Analysis │ Map │           │
 │ Investigation │ Projects                    │
@@ -266,7 +250,6 @@ The backend includes a dedicated GIS service, while the frontend provides intera
                        ▼
 ┌─────────────────────────────────────────────┐
 │               FASTAPI BACKEND                │
-│                                             │
 │ Routers │ Services │ Risk Engine │ Auth     │
 │ GIS │ Image Processing │ Cost Analysis      │
 │ Tender Analysis │ Nexus / Relationship      │
@@ -275,13 +258,9 @@ The backend includes a dedicated GIS service, while the frontend provides intera
                        ▼
 ┌─────────────────────────────────────────────┐
 │          POSTGRESQL + POSTGIS               │
-│                                             │
 │ Project Data │ Risk Data │ Evidence         │
 │ Spatial Data │ Verification / Audit Data    │
 └─────────────────────────────────────────────┘
-
-Additional infrastructure:
-Docker │ Docker Compose │ Alembic │ Pytest │ CI
 ```
 
 ---
@@ -291,59 +270,14 @@ Docker │ Docker Compose │ Alembic │ Pytest │ CI
 ```text
 NIRIKSHAN-SIH-2026/
 │
-├── .github/
-│   └── workflows/
-│       └── ci.yml
-│
+├── .github/workflows/
 ├── backend/
-│   ├── app/
-│   │   ├── database/
-│   │   ├── repositories/
-│   │   ├── routers/
-│   │   ├── services/
-│   │   └── utils/
-│   ├── alembic/
-│   ├── tests/
-│   ├── Dockerfile
-│   ├── requirements.txt
-│   └── alembic.ini
-│
 ├── config/
-│   └── risk_weights.yaml
-│
 ├── data/
-│   ├── raw/
-│   ├── processed/
-│   └── synthetic/
-│
 ├── database/
-│   ├── init/
-│   └── seeds/
-│
 ├── docs/
-│   ├── API.md
-│   ├── DATA_MODEL.md
-│   ├── DEVELOPMENT.md
-│   ├── PROJECT_ARCHITECTURE.md
-│   └── RISK_ENGINE.md
-│
 ├── frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   ├── context/
-│   │   ├── hooks/
-│   │   ├── pages/
-│   │   ├── services/
-│   │   └── utils/
-│   ├── tests/
-│   ├── package.json
-│   └── Dockerfile
-│
 ├── ml/
-│   ├── anomaly_detection/
-│   ├── computer_vision/
-│   └── nlp/
-│
 ├── scripts/
 ├── tests/
 ├── docker-compose.yml
@@ -372,15 +306,13 @@ postgres_data/
 uploads/
 ```
 
-A `.env.example` file is included for documenting required environment variables without exposing local secrets.
+A `.env.example` file documents required environment variables without exposing local secrets.
 
 > Never commit real API keys, database passwords, tokens, or other credentials.
 
 ---
 
 # 🐳 Running the Prototype
-
-The project is containerized using Docker Compose.
 
 ### Prerequisites
 
@@ -397,13 +329,11 @@ cd NIRIKSHAN-SIH-2026
 
 ### Environment
 
-Create your local environment file from the example:
-
 ```bash
 copy .env.example .env
 ```
 
-Then configure the required local values in `.env`.
+Configure the required local values in `.env`.
 
 ### Start services
 
@@ -417,8 +347,6 @@ The frontend can then be accessed through the configured local frontend port.
 
 # 🧪 Testing
 
-The project includes automated tests for backend functionality and frontend UI behavior.
-
 Backend tests:
 
 ```bash
@@ -428,7 +356,7 @@ pytest
 
 Frontend tests are configured in the frontend project.
 
-CI configuration is available under:
+CI configuration:
 
 ```text
 .github/workflows/ci.yml
@@ -438,7 +366,7 @@ CI configuration is available under:
 
 # 📚 Documentation
 
-Additional technical documentation is available in:
+Additional technical documentation is available under:
 
 ```text
 docs/
@@ -448,32 +376,6 @@ docs/
 ├── PROJECT_ARCHITECTURE.md
 └── RISK_ENGINE.md
 ```
-
----
-
-# 🔄 Development Workflow
-
-The project is designed for collaborative development using Git.
-
-Recommended workflow:
-
-```text
-Issue / Task
-     ↓
-Feature Branch
-     ↓
-Development
-     ↓
-Testing
-     ↓
-Pull Request
-     ↓
-Review
-     ↓
-Merge into main
-```
-
-Collaborators and branch protections can be configured as the team moves into the next development phase.
 
 ---
 
@@ -490,7 +392,7 @@ Potential extensions include:
 - advanced audit trails,
 - role-based access control,
 - model monitoring and evaluation, and
-- deployment to a production infrastructure.
+- production deployment.
 
 ---
 
@@ -508,7 +410,7 @@ The current demonstration uses synthetic data.
 
 **NIRIKSHAN — SIH 2026**
 
-Team collaboration and individual contribution details can be added here as the project moves into the collaborative development phase.
+Team collaboration and individual contribution details can be added as the project moves into the collaborative development phase.
 
 ---
 
@@ -516,4 +418,4 @@ Team collaboration and individual contribution details can be added here as the 
 
 **NIRIKSHAN-SIH-2026**
 
-The repository contains the frontend, backend, database, GIS, risk-engine, ML module structure, tests, documentation, Docker configuration, and CI workflow for the prototype.
+The repository contains the frontend, backend, database, GIS, risk-engine, ML module structure, tests, documentation, Docker configuration, CI workflow, and README visualizations for the prototype.
